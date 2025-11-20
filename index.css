@@ -1,9 +1,10 @@
 :root{
-    font-size: 16px;
+    font-size: 1%;
 }
 
 body{
     background-color: #FFD07B;
+    margin: 0;
 }
 
 h1{
@@ -16,26 +17,37 @@ p{
 
 .header_link{
     font-family: "Montserrat";
-    font-size: 2.25rem;
+    font-size: 1.75rem;
     font-weight: 600;
     color: #FFB200;
+    transition: all 0.1s ease-in;
+    margin: 0;
+}
+
+.header_link:hover{
+    color: #F46800;
 }
 
 #title{
     font-family: "Berkshire Swash";
-    font-size: 4.5rem;
+    font-size: 3.75rem;
+    width: fit-content;
+    height: fit-content;
+    padding: 1.25rem;
     background-image: linear-gradient(to bottom, #F46800, #FFB200);
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    background-clip: text;
+    color: transparent;
+    /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);*/
+    margin: 0;
 }
 
 #header{
     display: flex;
+    margin: 0;
     width: 100%;
-    height: 10%;
+    min-height: 10%;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
     background-image: linear-gradient(to bottom, #DC4E00, #FF964C);
 }
