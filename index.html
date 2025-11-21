@@ -25,18 +25,23 @@
             <a class="header_link" href="pages/SDP/U2_Lab13_SDP.html">SDP</a>
         </div>
 
-        <div class="row">
-            <div id="cards">
-            <script>genCards()</script>
-        </div>
+        <div class="column" id="main_column">
+            <h1 id="player_turn">Player's Turn</h1>
+            
+            <div class="row" id="main_row">
+                <div id="cards"></div>
 
-        <div id="score">
-            <h1>Score</h1>
-            <div class="score_box">
-                <h1>Player 1 won!</h1>
+                <div id="score">
+                    <h1>Score</h1>
+                    <div class="score_box">
+                        <h1>Player 1 won!</h1>
+                    </div>
+                </div>
             </div>
-        </div>
-        </div>
 
+        </div>
+    </div>
+
+    <script>genCards()</script>
     </body>
 </html>
