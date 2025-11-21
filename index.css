@@ -1,7 +1,3 @@
-:root{
-    font-size: 1%;
-}
-
 body{
     background-color: #FFD07B;
     margin: 0;
@@ -17,7 +13,7 @@ p{
 
 .header_link{
     font-family: "Montserrat";
-    font-size: 1.75rem;
+    font-size: 1.75vw;
     font-weight: 600;
     color: #FFB200;
     transition: all 0.1s ease-in;
@@ -28,14 +24,52 @@ p{
     color: #F46800;
 }
 
+.row{
+    display: flex;
+    flex-direction: row;
+}
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+.card{
+    width: 7.5rem;
+    height: 10.625rem;
+    background-color: #542F00;
+}
+
+.score_box{
+    width: 80%;
+    height: 10%;
+    background-color: #ED5A08;
+    border: 2px solid #A54007;
+    border-radius: 1.5rem;
+    padding-left: 1rem;
+    justify-self: center;
+    margin-left: 1rem;
+}
+
+.score_box>h1{
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 1.75rem;
+    align-content: center;
+    color: transparent;
+    background-image: linear-gradient(to bottom, #FFFFFF, #DFDFDF);
+    background-clip: text;
+}
+
 #title{
     font-family: "Berkshire Swash";
-    font-size: 3.75rem;
+    font-size: 3vw;
     width: fit-content;
     height: fit-content;
     padding: 1.25rem;
     background-image: linear-gradient(to bottom, #F46800, #FFB200);
     background-clip: text;
+    -webkit-text-stroke: 1px #862f0094;
     color: transparent;
     /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);*/
     margin: 0;
@@ -49,5 +83,41 @@ p{
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    padding: 0 2rem 0 2rem;
+    box-sizing: border-box;
     background-image: linear-gradient(to bottom, #DC4E00, #FF964C);
+}
+
+#cards{
+    display: grid;
+    grid-template-columns: repeat(5, .5fr);
+    grid-template-rows: repeat(4, .5fr);
+    gap: 10px;
+    width: 50%;
+    height: fit-content;
+    max-height: 40%;
+    align-self: center;
+    margin: 2rem;
+}
+
+#score{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    min-width: 20%;
+    min-height: 100%;
+    background-color: #966D3B;
+    border: 1px solid #553000;
+    border-radius: 1.5rem;
+    margin-top: 2rem;
+}
+
+#score>h1{
+    color: transparent;
+    background-image: linear-gradient(to bottom, #FFFFFF, #DFDFDF);
+    background-clip: text;
+    font-size: 1.5rem;
+    text-align: left;
+    margin-left: 1rem;
+    margin-top: 1rem;
 }
