@@ -11,7 +11,6 @@ if (sessionStorage.getItem("p1_wins") == null){ // this could be moved into genC
 }
 
 function genCards(){
-    //if (sessionStorage.getItem("game_status") == null){
 
         console.log("true");
         sessionStorage.setItem("game_status","true");
@@ -43,16 +42,17 @@ function genCards(){
             const image = sessionStorage.getItem(j);
             const card = document.createElement("div");
             card.className = "card";
-            card.id = image
-            console.log(card.id)
-            card.textContent = image
-            cards.appendChild(card)
+            card.id = image;
+            console.log(card.id);
+            card.onclick = function(){flipCard(card)};
+            card.style.backgroundImage = "url(resources/common/Cards/InactiveCard.png)";
+            cards.appendChild(card);
+
         }   
-    //}
-    
 
-    /*else{
-        console.log("game is being played");
-    }*/
+}
 
+function flipCard(card){
+    const id = card.id 
+    card.style.backgroundImage = `url(resources/common/Cards/${id}.png`
 }
