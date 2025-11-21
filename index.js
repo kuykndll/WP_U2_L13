@@ -21,8 +21,17 @@ function genCards(){
             positions[i] = i;
         }
 
+        let x = positions.length
+
+        while(x != 0){
+            let rand_index = Math.floor(Math.random() * x);
+            x--;
+
+            [positions[x], positions[rand_index]] = [positions[rand_index], positions[x]]
+        }
+        console.log(positions)
         for (let g = 0; g < 20; g++){
-            let randomNumber = positions[Math.floor(Math.random() * positions.length)];
+            let randomNumber = positions.pop()
             let pair = Math.floor(g / 2);
 
             sessionStorage.setItem(randomNumber, `image${pair}`)
@@ -34,6 +43,8 @@ function genCards(){
             const image = sessionStorage.getItem(j);
             const card = document.createElement("div");
             card.className = "card";
+            card.id = image
+            console.log(card.id)
             card.textContent = image
             cards.appendChild(card)
         }   
