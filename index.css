@@ -61,6 +61,63 @@ p{
     background-clip: text;
 }
 
+.reset_button{
+    background-image: linear-gradient(to bottom, #DC4E00, #FF964C);
+    padding: 1rem 2.5rem 1rem 2.5rem;
+    border: 2px #e76317c8;
+    box-shadow: inset 2px 2px 12px 1px rgba(0, 0, 0, 0.25), 2px 2px 12px 1px rgba(0, 0, 0, 0.222);
+    width: fit-content;
+    height: fit-content;
+    align-content: center;
+    border-radius: 1rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    transition: all 0.15s ease-in-out;
+}
+
+.reset_button>p{
+    color: transparent;
+    background-clip: text;
+    text-align: center;
+    width: 100%;
+    height: fit-content;
+    background-image: linear-gradient(to bottom, #FFFFFF, #DFDFDF);
+    font-family: "Berkshire Swash";
+    font-size: 1.75rem;
+    margin: 0;
+    padding: 0;
+}
+
+.reset_button:hover{
+    transform: scale(1.1);
+    background-image: linear-gradient(to bottom, #f1671c, #ff6a00);
+}
+
+.reset_button:active{
+    transform: scale(0.9);
+    background-image: linear-gradient(to bottom, #ff9f5b, #ff6a00);
+}
+
+.ts_box{
+    background-image: linear-gradient(to bottom, #DC4E00, #FF964C);
+    border: 2px solid #e76317a4;
+    border-radius: 1rem;
+    width: fit-content;
+    height: fit-content;
+    padding: .5rem 1rem .5rem 1rem;
+}
+
+.ts_box>p{
+    font: "Berkshire Swash";
+    font-size: 1rem;
+    background-image: linear-gradient(to bottom, #FFFFFF, #DFDFDF);
+    background-clip: text;
+    color: transparent;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 #title{
     font-family: "Berkshire Swash";
     font-size: 3vw;
@@ -106,7 +163,7 @@ p{
     justify-content: flex-start;
     min-width: 20%;
     min-height: 100%;
-    padding-bottom: 1rem;
+    padding: 1rem;
     background-color: #966D3B;
     border: 1px solid #553000;
     border-radius: 1.5rem;
@@ -143,4 +200,24 @@ p{
     gap: 2rem;
     width: 100%;
     height: 100%;
+}
+
+#score_bottom{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+#total_score{
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+    height: fit-content;
+    border: 2px solid #B98646;
+    padding: .5rem;
+    gap: .5rem;
+    border-radius: .5rem;
 }
