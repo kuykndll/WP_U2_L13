@@ -1,6 +1,7 @@
 class Card{
-    constructor(position){
-        this.position = position;
+    constructor(image,visiblity){
+        this.image = image;
+        this.visiblity = visiblity
     }
 }
 
@@ -10,23 +11,37 @@ if (sessionStorage.getItem("p1_wins") == null){ // this could be moved into genC
 }
 
 function genCards(){
-    if (sessionStorage.getItem("game_status") == null){
+    //if (sessionStorage.getItem("game_status") == null){
 
         console.log("true");
         sessionStorage.setItem("game_status","true");
         const positions = [];
 
-        for (let i = 1; i <= 20; i++){
-            positions.append(i);
+        for (let i = 0; i < 20; i++){
+            positions[i] = i;
         }
 
-        for (let g = 1; g <= 20; g++){
+        for (let g = 0; g < 20; g++){
+            let randomNumber = positions[Math.floor(Math.random() * positions.length)];
+            let pair = Math.floor(g / 2);
 
+            sessionStorage.setItem(randomNumber, `image${pair}`)
         }
-    }
 
-    else{
+        const cards = document.getElementById("cards");
+
+        for (let j = 0; j < 20; j++){
+            const image = sessionStorage.getItem(j);
+            const card = document.createElement("div");
+            card.className = "card";
+            card.textContent = image
+            cards.appendChild(card)
+        }   
+    //}
+    
+
+    /*else{
         console.log("game is being played");
-    }
+    }*/
 
 }
