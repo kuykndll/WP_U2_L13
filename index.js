@@ -1,9 +1,15 @@
-class Card{
+let player = 0;//Determines the player. Even = P1, Odd = P2
+let turn = 0; //Determines when I need to swap between players
+let p1_score = 0; 
+let p2_score = 0; 
+let cards_list = []; //Keeps a memory of all the two cards collected
+
+/*class Card{
     constructor(image,visiblity){
         this.image = image;
         this.visiblity = visiblity
     }
-}
+}*/
 
 if (sessionStorage.getItem("p1_wins") == null){ // this could be moved into genCards. all it does it set up the scores when first loading in
     sessionStorage.setItem("p1_wins", 0);
@@ -11,48 +17,90 @@ if (sessionStorage.getItem("p1_wins") == null){ // this could be moved into genC
 }
 
 function genCards(){
+    console.log("true");
+    sessionStorage.setItem("game_status","true");
+    const positions = [];
 
-        console.log("true");
-        sessionStorage.setItem("game_status","true");
-        const positions = [];
+    for (let i = 0; i < 20; i++){
+        positions[i] = i;
+    }
 
-        for (let i = 0; i < 20; i++){
-            positions[i] = i;
-        }
+    let len = positions.length;
 
-        let x = positions.length
+    while(len != 0){
+        let rand_index = Math.floor(Math.random() * len);
+        len--;
 
-        while(x != 0){
-            let rand_index = Math.floor(Math.random() * x);
-            x--;
+        [positions[len], positions[rand_index]] = [positions[rand_index], positions[len]]
+    }
 
-            [positions[x], positions[rand_index]] = [positions[rand_index], positions[x]]
-        }
-        console.log(positions)
-        for (let g = 0; g < 20; g++){
-            let randomNumber = positions.pop()
-            let pair = Math.floor(g / 2);
+    for (let g = 0; g < 20; g++){
+        let randomNumber = positions.pop()
+        let pair = Math.floor(g / 2);
 
-            sessionStorage.setItem(randomNumber, `image${pair}`)
-        }
+        sessionStorage.setItem(randomNumber, `image${pair}`)
+    }
 
-        const cards = document.getElementById("cards");
+    const cards = document.getElementById("cards");
 
-        for (let j = 0; j < 20; j++){
-            const image = sessionStorage.getItem(j);
-            const card = document.createElement("div");
-            card.className = "card";
-            card.id = image;
-            console.log(card.id);
-            card.onclick = function(){flipCard(card)};
-            card.style.backgroundImage = "url(resources/common/Cards/InactiveCard.png)";
-            cards.appendChild(card);
+    for (let j = 0; j < 20; j++){
+        const image = sessionStorage.getItem(j);
+        const card = document.createElement("div");
+        card.className = "card";
+        card.id = image;
+        card.onclick = function(){flipCard(card)};
+        card.style.backgroundImage = "url(resources/common/Cards/InactiveCard.png)";
+        cards.appendChild(card);
 
-        }   
+    }   
 
 }
 
-function flipCard(card){
-    const id = card.id 
-    card.style.backgroundImage = `url(resources/common/Cards/${id}.png`
+function flipCard(card){ // note that this does not update any scores on the web page yeah.
+
+    const id = card.id ;
+    card.style.backgroundImage = `url(resources/common/Cards/${id}.png`;
+    cards_list.push(card);
+
+    if (turn % 2 == 1){
+
+        const card_1 = cards_list[0];
+        const card_2 = cards_list[1];
+
+        if(card_1.id == card_2.id){
+            if (player % 2 == 0){
+                p1_score++;
+            } 
+            else{
+                p2_score++;
+            }
+            card_1.onclick = function(){doesNothing()};
+            card_2.onclick = function(){doesNothing()};
+
+
+            if(p1_score + p2_score == 10){
+                console.log(`DEBUG: player1 score${p1_score}`)
+                console.log(`DEBUG: player2 score${p2_score}`)
+            }
+        }
+
+        else{
+            const delay = setTimeout(undoFlip, 1500, cards_list);
+            console.log("switching turns")
+            player++;
+        }
+
+
+        cards_list = [];
+    }
+    turn++;
+}
+
+function undoFlip(cards_list){
+    cards_list[0].style.backgroundImage = "url(resources/common/Cards/InactiveCard.png)";
+    cards_list[1].style.backgroundImage = "url(resources/common/Cards/InactiveCard.png)";
+}
+
+function doesNothing(){//There has to be a better way to do this but this also kinda funny so like :P
+
 }
