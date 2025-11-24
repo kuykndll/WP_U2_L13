@@ -318,8 +318,6 @@ p{
     transition: all 0.15s ease-in-out;
 }
 
-/* spooky */
-
 #noti_close>p{
     color: transparent;
     background-clip: text;
