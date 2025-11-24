@@ -144,6 +144,6 @@ function createNotification(messageString, titleString = "Notification"){
 
 createNotification("Hello", "World");
 
-function resetButton{
+function resetButton(){
     window.location.reload();
 }
