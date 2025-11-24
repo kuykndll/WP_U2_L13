@@ -83,6 +83,22 @@ function flipCard(card){ // note that this does not update any scores on the web
             if(p1_score + p2_score == 10){
                 console.log(`DEBUG: player1 score${p1_score}`)
                 console.log(`DEBUG: player2 score${p2_score}`)
+
+                if(p1_score > p2_score){
+                    let p1_wins = Number(sessionStorage.getItem("p1_wins"));
+                    p1_wins++;
+
+                    sessionStorage.setItem("p1_wins", p1_wins);
+                }
+
+                if(p1_score < p2_score){
+                    let p2_wins = Number(sessionStorage.getItem("p2_wins"));
+                    p2_wins++;
+
+                    sessionStorage.setItem("p2_wins", p2_wins);
+                }
+
+
             }
         }
 
@@ -127,3 +143,7 @@ function createNotification(messageString, titleString = "Notification"){
 }
 
 createNotification("Hello", "World");
+
+function resetButton{
+    window.location.reload();
+}
