@@ -131,6 +131,7 @@ function doesNothing(){//There has to be a better way to do this but this also k
 
 }
 
+/*
 function createNotification(messageString, titleString = "Notification"){
     if(messageString){
         console.log("Wowies");
@@ -151,6 +152,7 @@ function createNotification(messageString, titleString = "Notification"){
 }
 
 createNotification("Hello", "World");
+*/
 
 function resetButton(){
     window.location.reload();
