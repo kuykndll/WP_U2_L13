@@ -131,7 +131,7 @@ function doesNothing(){//There has to be a better way to do this but this also k
 
 }
 
-/*
+
 function createNotification(messageString, titleString = "Notification"){
     if(messageString){
         console.log("Wowies");
@@ -146,13 +146,17 @@ function createNotification(messageString, titleString = "Notification"){
         title.textContent = titleString;
         message.textContent = messageString;
         notify_div.style.opacity = 1;
+        notify_div.style.zIndex = 1;
 
-        close_button.onclick = function(){notify_div.style.opacity = 0};
+        close_button.onclick = function(){
+            notify_div.style.opacity = 0;
+            notify_div.style.zIndex = -1;
+        };
     }
 }
 
 createNotification("Hello", "World");
-*/
+
 
 function resetButton(){
     window.location.reload();
