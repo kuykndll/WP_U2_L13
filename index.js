@@ -4,6 +4,8 @@ let p1_score = 0;
 let p2_score = 0; 
 let cards_list = []; //Keeps a memory of all the two cards collected
 
+const notify_div = document.getElementById("notification");
+
 /*class Card{
     constructor(image,visiblity){
         this.image = image;
@@ -104,3 +106,24 @@ function undoFlip(cards_list){
 function doesNothing(){//There has to be a better way to do this but this also kinda funny so like :P
 
 }
+
+function createNotification(messageString, titleString = "Notification"){
+    if(messageString){
+        console.log("Wowies");
+        console.log(notify_div);
+        let title = document.getElementById("noti_title");
+        let message = document.getElementById("noti_message");
+        let reset_button = document.getElementById("noti_reset");
+        let close_button = document.getElementById("noti_close");
+
+        console.log(title);
+
+        title.textContent = titleString;
+        message.textContent = messageString;
+        notify_div.style.opacity = 1
+
+        close_button.onclick = function(){notify_div.style.opacity = 0};
+    }
+}
+
+createNotification("Hello", "World");
