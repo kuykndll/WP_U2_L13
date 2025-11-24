@@ -106,6 +106,14 @@ function flipCard(card){ // note that this does not update any scores on the web
             const delay = setTimeout(undoFlip, 1500, cards_list);
             console.log("switching turns")
             player++;
+            const turn_text = document.getElementById("player_turn")
+
+            if (player % 2 == 0){
+                turn_text.textContent = "Player 1 turn"
+            }
+            else{
+                turn_text.textContent = "Player 2 turn"
+            }
         }
 
 
@@ -136,7 +144,7 @@ function createNotification(messageString, titleString = "Notification"){
 
         title.textContent = titleString;
         message.textContent = messageString;
-        notify_div.style.opacity = 1
+        notify_div.style.opacity = 1;
 
         close_button.onclick = function(){notify_div.style.opacity = 0};
     }
