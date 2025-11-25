@@ -5,6 +5,10 @@ body{
 
 h1{
     font-family: "Berkshire Swash";
+    background-image: linear-gradient(to bottom, #F46800, #FFB200);
+    background-clip: text;
+    color: transparent;
+    margin-left: 2rem;
 }
 
 p{
@@ -25,9 +29,10 @@ p{
 }
 
 #rules{
-    text-align: center;
+    text-align: left;
     align-items: center;
     font-size: 1.25rem;
+    margin: 2rem;
 }
 
 #title{
@@ -55,4 +60,27 @@ p{
     padding: 0 2rem 0 2rem;
     box-sizing: border-box;
     background-image: linear-gradient(to bottom, #DC4E00, #FF964C);
+}
+
+#pairs{
+    display: grid;
+    grid-template-columns: repeat(10, 120px);
+    grid-template-rows: repeat(2, 170px); 
+    gap: 10px;
+    width: fit-content;
+    align-self: center;
+    margin: 2rem;
+}
+
+.card{
+    width: 120px;
+    height: 170px;
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover{
+    transform: scale(1.1);
 }
