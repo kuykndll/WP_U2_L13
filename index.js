@@ -8,7 +8,6 @@ let clickable = true;
 const notify_div = document.getElementById("notification");
 
 function genCards(){
-    console.log("true");
     sessionStorage.setItem("game_status","true");
     const positions = [];
 
@@ -90,9 +89,6 @@ function flipCard(card){
 
 
             if(p1_score + p2_score == 10){
-                console.log(`DEBUG: player1 score${p1_score}`)
-                console.log(`DEBUG: player2 score${p2_score}`)
-
                 if(p1_score > p2_score){
                     let p1_wins = Number(sessionStorage.getItem("p1_wins"));
                     p1_wins++;
@@ -126,7 +122,6 @@ function flipCard(card){
         else{
             clickable = false;
             const delay = setTimeout(undoFlip, 1500, cards_list);
-            console.log("switching turns")
             player++;
             const turn_text = document.getElementById("player_turn")
 
@@ -162,8 +157,6 @@ function createNotification(messageString, titleString = "Notification"){
         let message = document.getElementById("noti_message");
         let reset_button = document.getElementById("noti_reset");
         let close_button = document.getElementById("noti_close");
-
-        console.log(title);
 
         title.textContent = titleString;
         message.textContent = messageString;
