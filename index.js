@@ -59,7 +59,7 @@ function genCards(){
 }
 
 function flipCard(card){ // note that this does not update any scores on the web page yeah.
-
+   
     const id = card.id ;
     card.style.backgroundImage = `url(resources/common/Cards/${id}.png`;
     cards_list.push(card);
