@@ -7,21 +7,12 @@ let clickable = true;
 
 const notify_div = document.getElementById("notification");
 
-/*class Card{
-    constructor(image,visiblity){
-        this.image = image;
-        this.visiblity = visiblity
-    }
-}*/
-
-
-
 function genCards(){
     console.log("true");
     sessionStorage.setItem("game_status","true");
     const positions = [];
 
-    if (sessionStorage.getItem("p1_wins") == null){ // this could be moved into genCards. all it does it set up the scores when first loading in
+    if (sessionStorage.getItem("p1_wins") == null){ 
     sessionStorage.setItem("p1_wins", 0);
     sessionStorage.setItem("p2_wins", 0);
 }
@@ -71,7 +62,7 @@ function genCards(){
 
 }
 
-function flipCard(card){ // note that this does not update any scores on the web page yeah.
+function flipCard(card){
     if(clickable){
    
     const id = card.id ;
@@ -107,13 +98,25 @@ function flipCard(card){ // note that this does not update any scores on the web
                     p1_wins++;
 
                     sessionStorage.setItem("p1_wins", p1_wins);
+
+                    const p1box = document.getElementById("p1");
+                    p1box.textContent = p1_wins;
+                    createNotification("Player 1 Wins!", "Congrats!");
                 }
 
-                if(p1_score < p2_score){
+                else if(p1_score < p2_score){
                     let p2_wins = Number(sessionStorage.getItem("p2_wins"));
                     p2_wins++;
 
                     sessionStorage.setItem("p2_wins", p2_wins);
+
+                    const p2box = document.getElementById("p1");
+                    p2box.textContent = p2_wins;
+                     createNotification("Player 2 Wins!", "Congrats!");
+                }
+
+                else{
+                    createNotification("It's a tie!", "Tie!");
                 }
 
 
@@ -148,7 +151,7 @@ function undoFlip(cards_list){
     clickable = true
 }
 
-function doesNothing(){//There has to be a better way to do this but this also kinda funny so like :P
+function doesNothing(){
 
 }
 
@@ -167,6 +170,8 @@ function createNotification(messageString, titleString = "Notification"){
         notify_div.style.opacity = 1;
         notify_div.style.zIndex = 1;
 
+        reset_button.onclick = function(){resetButton()}
+
         close_button.onclick = function(){
             notify_div.style.opacity = 0;
             notify_div.style.zIndex = -1;
@@ -174,7 +179,7 @@ function createNotification(messageString, titleString = "Notification"){
     }
 }
 
-createNotification("Hello", "World");
+
 
 
 function resetButton(){
