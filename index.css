@@ -54,8 +54,10 @@ p{
     border: 2px solid #A54007;
     border-radius: 1.5rem;
     padding-left: 1rem;
+    padding-bottom: 1rem;
     justify-self: center;
     margin-left: 1rem;
+    gap: 0.1rem;
 }
 
 .score_box>h1{
@@ -66,6 +68,12 @@ p{
     color: transparent;
     background-image: linear-gradient(to bottom, #FFFFFF, #DFDFDF);
     background-clip: text;
+    margin: 0;
+}
+
+.score_box>p{
+    font-family: "Berkshire Swash";
+    color: white;
 }
 
 .reset_button{
@@ -347,12 +355,4 @@ p{
 #noti_close:active{
     transform: scale(0.9);
     background-image: linear-gradient(to bottom, #f63e41, #b50104);
-}
-
-#click_blocker{
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    position: fixed;
-    z-index: -2; /* set to 1 or more */
 }
