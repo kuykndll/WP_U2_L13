@@ -3,6 +3,7 @@ let turn = 0; //Determines when I need to swap between players
 let p1_score = 0; 
 let p2_score = 0; 
 let cards_list = []; //Keeps a memory of all the two cards collected
+let clickable = true;
 
 const notify_div = document.getElementById("notification");
 
@@ -13,15 +14,27 @@ const notify_div = document.getElementById("notification");
     }
 }*/
 
-if (sessionStorage.getItem("p1_wins") == null){ // this could be moved into genCards. all it does it set up the scores when first loading in
-    sessionStorage.setItem("p1_wins", 0);
-    sessionStorage.setItem("p2_wins", 0);
-}
+
 
 function genCards(){
     console.log("true");
     sessionStorage.setItem("game_status","true");
     const positions = [];
+
+    if (sessionStorage.getItem("p1_wins") == null){ // this could be moved into genCards. all it does it set up the scores when first loading in
+    sessionStorage.setItem("p1_wins", 0);
+    sessionStorage.setItem("p2_wins", 0);
+}
+
+    const p1box = document.getElementById("p1");
+    const p2box = document.getElementById("p2");
+
+    const p1_wins = sessionStorage.getItem("p1_wins");
+    const p2_wins = sessionStorage.getItem("p2_wins");
+
+
+    p1box.textContent = p1_wins;
+    p2box.textContent = p2_wins;
 
     for (let i = 0; i < 20; i++){
         positions[i] = i;
@@ -59,6 +72,7 @@ function genCards(){
 }
 
 function flipCard(card){ // note that this does not update any scores on the web page yeah.
+    if(clickable){
    
     const id = card.id ;
     card.style.backgroundImage = `url(resources/common/Cards/${id}.png`;
@@ -72,9 +86,13 @@ function flipCard(card){ // note that this does not update any scores on the web
         if(card_1.id == card_2.id){
             if (player % 2 == 0){
                 p1_score++;
+                const display = document.getElementById("player_1_score");
+                display.textContent = `Player 1 score: ${p1_score}`;
             } 
             else{
                 p2_score++;
+                const display = document.getElementById("player_2_score");
+                display.textContent = `Player 2 score: ${p2_score}`;
             }
             card_1.onclick = function(){doesNothing()};
             card_2.onclick = function(){doesNothing()};
@@ -103,6 +121,7 @@ function flipCard(card){ // note that this does not update any scores on the web
         }
 
         else{
+            clickable = false;
             const delay = setTimeout(undoFlip, 1500, cards_list);
             console.log("switching turns")
             player++;
@@ -121,10 +140,12 @@ function flipCard(card){ // note that this does not update any scores on the web
     }
     turn++;
 }
+}
 
 function undoFlip(cards_list){
     cards_list[0].style.backgroundImage = "url(resources/common/Cards/InactiveCard.png)";
     cards_list[1].style.backgroundImage = "url(resources/common/Cards/InactiveCard.png)";
+    clickable = true
 }
 
 function doesNothing(){//There has to be a better way to do this but this also kinda funny so like :P
