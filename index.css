@@ -40,6 +40,11 @@ p{
     background-position: center;
     background-size: auto;
     background-repeat: no-repeat;
+    transition: all 0.2s ease-in-out;
+}
+
+.card:hover{
+    transform: scale(1.1);
 }
 
 .score_box{

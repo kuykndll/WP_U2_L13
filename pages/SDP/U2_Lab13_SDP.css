@@ -24,6 +24,13 @@ p{
     color: #F46800;
 }
 
+#text{
+    text-align: left;
+    align-items: center;
+    font-size: 1.25rem;
+    margin: 2rem;
+}
+
 #title{
     font-family: "Berkshire Swash";
     font-size: 3vw;

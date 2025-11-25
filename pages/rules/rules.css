@@ -1,0 +1,58 @@
+body{
+    background-color: #FFD07B;
+    margin: 0;
+}
+
+h1{
+    font-family: "Berkshire Swash";
+}
+
+p{
+    font-family: "Montserrat";
+}
+
+.header_link{
+    font-family: "Montserrat";
+    font-size: 1.75vw;
+    font-weight: 600;
+    color: #FFB200;
+    transition: all 0.1s ease-in;
+    margin: 0;
+}
+
+.header_link:hover{
+    color: #F46800;
+}
+
+#rules{
+    text-align: center;
+    align-items: center;
+    font-size: 1.25rem;
+}
+
+#title{
+    font-family: "Berkshire Swash";
+    font-size: 3vw;
+    width: fit-content;
+    height: fit-content;
+    padding: 1.25rem;
+    background-image: linear-gradient(to bottom, #F46800, #FFB200);
+    background-clip: text;
+    -webkit-text-stroke: 1px #862f004f;
+    color: transparent;
+    /*text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);*/
+    margin: 0;
+}
+
+#header{
+    display: flex;
+    margin: 0;
+    width: 100%;
+    min-height: 10%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem 0 2rem;
+    box-sizing: border-box;
+    background-image: linear-gradient(to bottom, #DC4E00, #FF964C);
+}

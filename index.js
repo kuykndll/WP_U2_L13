@@ -134,8 +134,6 @@ function doesNothing(){//There has to be a better way to do this but this also k
 
 function createNotification(messageString, titleString = "Notification"){
     if(messageString){
-        console.log("Wowies");
-        console.log(notify_div);
         let title = document.getElementById("noti_title");
         let message = document.getElementById("noti_message");
         let reset_button = document.getElementById("noti_reset");
